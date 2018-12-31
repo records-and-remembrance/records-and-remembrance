@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+/vendor/bundle
+.bundle
+
+# production
+/build
+/public/assets
+
+# misc
+.env
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# coverage
+/coverage
