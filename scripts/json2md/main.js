@@ -14,17 +14,39 @@ async function require_json(filename) {
   return JSON.parse(text);
 }
 
+function buildTitle(str) {
+  let title = str;
+  let quote = "'";
+  if (str.includes("'")) {
+    quote = '"';
+  }
+  if (str.includes('"')) {
+    title = str.replace(/\"/g, '\\"');
+  }
+  return quote + title + quote;
+}
+
+function buildTags(cats) {
+  return cats
+    .map(cat => {
+      let tag = cat;
+      if (tag.includes("*")) {
+        tag = tag.replace(/\*/g, "_");
+      }
+      return "  - " + tag + "\n";
+    })
+    .join("");
+}
+
 function buildMd(json) {
+  const title = buildTitle(json.title);
+  const tags =
+    json.cats && json.cats.length ? "tags:\n" + buildTags(json.cats) : "";
   return `---
 templateKey: article
-title: '${json.title}'
+title: ${title}
 date: '${json.posted_at}'
-${
-    json.cats
-      ? `tags:
-${json.cats.map(cat => "  - " + cat + "\n").join("")}`
-      : null
-  }---
+${tags}---
 ${json.content}
 `;
 }
@@ -52,15 +74,25 @@ function parseDate2Str(str) {
   return `${dateStr}-${timeStr}.md`;
 }
 
+function buildFilename(json) {
+  if (json.custom_url) {
+    return json.custom_url.replace(/\//g, "-") + ".md";
+  } else {
+    return parseDate2Str(json.posted_at);
+  }
+}
+
+async function readAndConvertJson(fileName) {
+  const json = await require_json(fileName);
+  const md = buildMd(json);
+  const saveFileName = outputDir + buildFilename(json);
+  await fs.writeFile(saveFileName, md);
+  console.log("saved:", saveFileName);
+}
+
 async function main() {
   files = await loadJsonFilenames();
-  files.map(async fileName => {
-    const json = await require_json(fileName);
-    const md = buildMd(json);
-    const saveFileName = outputDir + parseDate2Str(json.posted_at);
-    await fs.writeFile(saveFileName, md);
-    console.log("saved:", saveFileName);
-  });
+  files.map(readAndConvertJson);
 }
 
 main();
