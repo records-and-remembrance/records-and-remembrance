@@ -4,5 +4,4 @@ gem 'activerecord'
 gem 'dotenv'
 gem 'irb'
 gem 'mechanize'
-gem 'pry-alias'
-gem 'pry-byebug'
+gem "debug"

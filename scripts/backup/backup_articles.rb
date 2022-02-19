@@ -1,8 +1,7 @@
 require 'dotenv/load'
 require 'json'
 require 'mechanize'
-require 'pry'
-require 'pry-alias'
+require 'debug'
 
 LOGIN_URL = 'https://www.hatena.ne.jp/login?location=%2F%2Fblog.hatena.ne.jp%2Fgo%3Fblog%3Dhttp%253A%252F%252Fmonden-info.hatenablog.com%252F'
 ID = 'goodrollings'
@@ -21,14 +20,15 @@ end
 
 def login
   agent.get(LOGIN_URL)
-  agent.page.form do |f|
-    f.field_with(name: 'name').value = ID
-    f.field_with(name: 'password').value = PASS
-    f.submit
-  end
+  binding.b
+  form = agent.page.form
+  form.field_with(name: 'name').value = ID
+  form.field_with(name: 'password').value = PASS
+  form.submit
 end
 
 def parse_page(page)
+  binding.b
   attrs_json = page.at('html').attribute('data-initial-state').value
   attrs = JSON.parse(attrs_json)
 
@@ -72,6 +72,7 @@ end
 
 def main
   puts "start backup!"
+  login
   articles = load_articles
   crawled_articles = crawl_articles(articles).compact
   save_as_each_json(crawled_articles)

@@ -9,7 +9,10 @@ https://blog.hatena.ne.jp/goodrollings/monden-info.hatenablog.com/entries
 ### Code
 
 ```js
-copy($('.entry-table-entry-title > a').map((i, elm) => $(elm).prop('href')))
+setInterval(() => {
+  $(".pager > button").click();
+}, 1000);
+copy($(".entry-table-entry-title > a").map((i, elm) => $(elm).prop("href")));
 ```
 
 ## replace URLs
