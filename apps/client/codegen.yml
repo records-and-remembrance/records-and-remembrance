@@ -10,6 +10,3 @@ generates:
       - typescript
       - typescript-operations
       - typed-document-node
-  src/generated/graphql.introspection.json:
-    plugins:
-      - urql-introspection

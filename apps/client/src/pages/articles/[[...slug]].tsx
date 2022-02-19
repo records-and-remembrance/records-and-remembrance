@@ -6,6 +6,7 @@ import {
   ArticleSlugsDocument,
 } from "../../generated/graphql";
 import { client } from "../../infra";
+import { markdownToHtml } from "../../utils/markdownToHtml";
 
 type Article = NonNullable<
   NonNullable<ArticlesBySlugQuery["articleCollection"]>["items"][0]
@@ -13,13 +14,14 @@ type Article = NonNullable<
 
 type Props = {
   article: Article;
+  content: string | undefined;
 };
 
 type Query = {
   slug: string[];
 };
 
-const ArticlePage = ({ article }: Props) => {
+const ArticlePage = ({ article, content }: Props) => {
   return (
     <div>
       <h1>
@@ -29,7 +31,7 @@ const ArticlePage = ({ article }: Props) => {
       <p>{article.date}</p>
       <p>{article.category}</p>
       <p>{JSON.stringify(article.tag)}</p>
-      <p>{article.content}</p>
+      {content ? <div dangerouslySetInnerHTML={{ __html: content }} /> : null}
     </div>
   );
 };
@@ -49,8 +51,12 @@ export const getStaticProps: GetStaticProps<Props, Query> = async ({
   const article = articleData.data?.articleCollection?.items?.[0];
   if (!article) return { notFound: true };
 
+  const content = article.content
+    ? await markdownToHtml(article.content)
+    : undefined;
+
   return {
-    props: { article },
+    props: { article, content },
   };
 };
 
