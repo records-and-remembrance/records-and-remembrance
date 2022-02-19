@@ -18,5 +18,5 @@ files.each do |file|
 
   result = replace_hatena2md_footnotes(md, notes)
 
-  File.write(file + '_u.md', result)
+  File.write(file, result)
 end
