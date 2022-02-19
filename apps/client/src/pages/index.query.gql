@@ -1,0 +1,15 @@
+query ArticleList {
+  articleCollection(limit: 10) {
+    total
+    skip
+    limit
+    items {
+      title
+      content
+      tag
+      slug
+      date
+      category
+    }
+  }
+}

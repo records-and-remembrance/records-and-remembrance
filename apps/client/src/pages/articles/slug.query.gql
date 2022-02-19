@@ -1,0 +1,20 @@
+query ArticlesBySlug($slug: String!) {
+  articleCollection(where: { slug: $slug }) {
+    items {
+      title
+      content
+      tag
+      slug
+      date
+      category
+    }
+  }
+}
+
+query ArticleSlugs {
+  articleCollection {
+    items {
+      slug
+    }
+  }
+}
