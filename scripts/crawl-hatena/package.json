@@ -1,0 +1,22 @@
+{
+  "name": "crawl-hatena",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:list": "ts-node -r dotenv/config ./src/index.list.ts",
+    "start:article": "ts-node -r dotenv/config ./src/index.article.ts"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "dotenv": "^16.0.0",
+    "env-var": "^7.1.1",
+    "puppeteer": "^13.3.2"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.36",
+    "@types/puppeteer": "5.4.4",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  }
+}
