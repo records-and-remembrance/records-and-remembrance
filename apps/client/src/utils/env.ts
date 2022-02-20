@@ -1,15 +1,15 @@
-import * as envVar from "env-var";
+import * as envVar from 'env-var'
 
 const CONTENTFUL_API_URL = envVar
-  .get("CONTENTFUL_API_URL")
+  .get('CONTENTFUL_API_URL')
   .required()
-  .asString();
+  .asString()
 const CONTENTFUL_ACCESS_TOKEN = envVar
-  .get("CONTENTFUL_ACCESS_TOKEN")
+  .get('CONTENTFUL_ACCESS_TOKEN')
   .required()
-  .asString();
+  .asString()
 
 export const env = {
   CONTENTFUL_API_URL,
-  CONTENTFUL_ACCESS_TOKEN,
-};
+  CONTENTFUL_ACCESS_TOKEN
+}

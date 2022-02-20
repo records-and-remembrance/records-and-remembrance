@@ -7,6 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "gen:gql": "graphql-codegen --require dotenv/config --config codegen.yml"
   },
   "dependencies": {
@@ -30,8 +31,12 @@
     "@graphql-codegen/typescript": "2.4.5",
     "@graphql-codegen/typescript-operations": "2.3.2",
     "@types/react": "17.0.39",
+    "@typescript-eslint/eslint-plugin": "5.12.0",
+    "@typescript-eslint/parser": "5.12.0",
     "dotenv": "16.0.0",
     "env-var": "7.1.1",
+    "eslint": "^8.9.0",
+    "eslint-config-next": "^12.1.0",
     "typescript": "4.5.5"
   }
 }
