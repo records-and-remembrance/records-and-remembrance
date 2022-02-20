@@ -3,9 +3,6 @@
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@6.11.0",
-  "engines": {
-    "node": "16"
-  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -13,6 +10,7 @@
     "gen:gql": "graphql-codegen --require dotenv/config --config codegen.yml"
   },
   "dependencies": {
+    "@graphql-typed-document-node/core": "^3.1.1",
     "graphql": "15.8.0",
     "graphql-tag": "2.12.6",
     "isomorphic-unfetch": "3.1.0",
