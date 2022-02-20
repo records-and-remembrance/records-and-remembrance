@@ -1,5 +1,5 @@
 import { createClient } from 'urql'
-import { env } from '../../utils/env'
+import { env } from '../../utils/serverEnv'
 
 /** SSR/SSG時のみ利用可能なGraphQL Client */
 export const client = createClient({
