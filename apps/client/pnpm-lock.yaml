@@ -14,6 +14,7 @@ specifiers:
   graphql-tag: 2.12.6
   isomorphic-unfetch: 3.1.0
   next: 12.1.0
+  next-seo: ^5.1.0
   react: 17.0.2
   react-dom: 17.0.2
   remark: 14.0.2
@@ -28,6 +29,7 @@ dependencies:
   graphql-tag: 2.12.6_graphql@15.8.0
   isomorphic-unfetch: 3.1.0
   next: 12.1.0_react-dom@17.0.2+react@17.0.2
+  next-seo: 5.1.0_caa633a00319350dbda42996613fe26c
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   remark: 14.0.2
@@ -3430,6 +3432,18 @@ packages:
     resolution: {integrity: sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: false
+
+  /next-seo/5.1.0_caa633a00319350dbda42996613fe26c:
+    resolution: {integrity: sha512-ampuQfNTOi1x+xtRIb6CZGunIo6rQXtMo2Tyu861d5GjJFIwfOXsA4lzCa4+e2rLkyXDyVpavNNUZWa3US9ELw==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      next: 12.1.0_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /next/12.1.0_react-dom@17.0.2+react@17.0.2:
