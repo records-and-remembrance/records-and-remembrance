@@ -1,6 +1,7 @@
 import { createClient } from "urql";
 import { env } from "../../utils/env";
 
+/** SSR/SSG時のみ利用可能なGraphQL Client */
 export const client = createClient({
   url: env.CONTENTFUL_API_URL,
   fetchOptions: () => {

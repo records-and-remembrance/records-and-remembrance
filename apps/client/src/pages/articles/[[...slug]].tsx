@@ -1,11 +1,10 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
-import Link from "next/link";
 import {
   ArticlesBySlugDocument,
   ArticlesBySlugQuery,
   ArticleSlugsDocument,
 } from "../../generated/graphql";
-import { client } from "../../infra";
+import { client } from "../../infra/graphqlClient";
 import { markdownToHtml } from "../../utils/markdownToHtml";
 
 type Article = NonNullable<
@@ -27,11 +26,23 @@ const ArticlePage = ({ article, content }: Props) => {
       <h1>
         <a>{article.title}</a>
       </h1>
-      <p>{article.title}</p>
-      <p>{article.date}</p>
-      <p>{article.category}</p>
-      <p>{JSON.stringify(article.tag)}</p>
-      {content ? <div dangerouslySetInnerHTML={{ __html: content }} /> : null}
+      <main>
+        {content ? <div dangerouslySetInnerHTML={{ __html: content }} /> : null}
+      </main>
+      <p>
+        Date: <time>{article.date}</time>
+      </p>
+      <p>Category: {article.category}</p>
+      <aside>
+        <p>Tags</p>
+        <ul>
+          {article.tag &&
+            article.tag.map((t) => {
+              if (!t) return null;
+              return <li key={t}>{t}</li>;
+            })}
+        </ul>
+      </aside>
     </div>
   );
 };

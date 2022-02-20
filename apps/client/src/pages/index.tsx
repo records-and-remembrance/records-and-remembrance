@@ -1,7 +1,7 @@
 import type { GetStaticProps } from "next";
 import Link from "next/link";
 import { ArticleListDocument, ArticleListQuery } from "../generated/graphql";
-import { client } from "../infra";
+import { client } from "../infra/graphqlClient";
 
 type Props = {
   articles: NonNullable<ArticleListQuery["articleCollection"]>["items"];

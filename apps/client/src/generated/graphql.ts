@@ -151,25 +151,26 @@ export type ArticleLinkingCollectionsEntryCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-export enum ArticleOrder {
-  CategoryAsc = 'category_ASC',
-  CategoryDesc = 'category_DESC',
-  DateAsc = 'date_ASC',
-  DateDesc = 'date_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
+export const ArticleOrder = {
+  CategoryAsc: 'category_ASC',
+  CategoryDesc: 'category_DESC',
+  DateAsc: 'date_ASC',
+  DateDesc: 'date_DESC',
+  SlugAsc: 'slug_ASC',
+  SlugDesc: 'slug_DESC',
+  SysFirstPublishedAtAsc: 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc: 'sys_firstPublishedAt_DESC',
+  SysIdAsc: 'sys_id_ASC',
+  SysIdDesc: 'sys_id_DESC',
+  SysPublishedAtAsc: 'sys_publishedAt_ASC',
+  SysPublishedAtDesc: 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc: 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc: 'sys_publishedVersion_DESC',
+  TitleAsc: 'title_ASC',
+  TitleDesc: 'title_DESC'
+} as const;
 
+export type ArticleOrder = typeof ArticleOrder[keyof typeof ArticleOrder];
 /** Represents a binary file in a space. An asset can be any file type. */
 export type Asset = {
   __typename?: 'Asset';
@@ -331,29 +332,30 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-export enum AssetOrder {
-  ContentTypeAsc = 'contentType_ASC',
-  ContentTypeDesc = 'contentType_DESC',
-  FileNameAsc = 'fileName_ASC',
-  FileNameDesc = 'fileName_DESC',
-  HeightAsc = 'height_ASC',
-  HeightDesc = 'height_DESC',
-  SizeAsc = 'size_ASC',
-  SizeDesc = 'size_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC',
-  WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC'
-}
+export const AssetOrder = {
+  ContentTypeAsc: 'contentType_ASC',
+  ContentTypeDesc: 'contentType_DESC',
+  FileNameAsc: 'fileName_ASC',
+  FileNameDesc: 'fileName_DESC',
+  HeightAsc: 'height_ASC',
+  HeightDesc: 'height_DESC',
+  SizeAsc: 'size_ASC',
+  SizeDesc: 'size_DESC',
+  SysFirstPublishedAtAsc: 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc: 'sys_firstPublishedAt_DESC',
+  SysIdAsc: 'sys_id_ASC',
+  SysIdDesc: 'sys_id_DESC',
+  SysPublishedAtAsc: 'sys_publishedAt_ASC',
+  SysPublishedAtDesc: 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc: 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc: 'sys_publishedVersion_DESC',
+  UrlAsc: 'url_ASC',
+  UrlDesc: 'url_DESC',
+  WidthAsc: 'width_ASC',
+  WidthDesc: 'width_DESC'
+} as const;
 
+export type AssetOrder = typeof AssetOrder[keyof typeof AssetOrder];
 export type ContentfulMetadata = {
   __typename?: 'ContentfulMetadata';
   tags: Array<Maybe<ContentfulTag>>;
@@ -400,82 +402,86 @@ export type EntryFilter = {
   sys?: InputMaybe<SysFilter>;
 };
 
-export enum EntryOrder {
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
+export const EntryOrder = {
+  SysFirstPublishedAtAsc: 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc: 'sys_firstPublishedAt_DESC',
+  SysIdAsc: 'sys_id_ASC',
+  SysIdDesc: 'sys_id_DESC',
+  SysPublishedAtAsc: 'sys_publishedAt_ASC',
+  SysPublishedAtDesc: 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc: 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc: 'sys_publishedVersion_DESC'
+} as const;
 
-export enum ImageFormat {
-  Avif = 'AVIF',
+export type EntryOrder = typeof EntryOrder[keyof typeof EntryOrder];
+export const ImageFormat = {
+  Avif: 'AVIF',
   /** JPG image format. */
-  Jpg = 'JPG',
+  Jpg: 'JPG',
   /**
    * Progressive JPG format stores multiple passes of an image in progressively higher detail.
    *         When a progressive image is loading, the viewer will first see a lower quality pixelated version which
    *         will gradually improve in detail, until the image is fully downloaded. This is to display an image as
    *         early as possible to make the layout look as designed.
    */
-  JpgProgressive = 'JPG_PROGRESSIVE',
+  JpgProgressive: 'JPG_PROGRESSIVE',
   /** PNG image format */
-  Png = 'PNG',
+  Png: 'PNG',
   /**
    * 8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
    *         The 8-bit PNG format is mostly used for simple images, such as icons or logos.
    */
-  Png8 = 'PNG8',
+  Png8: 'PNG8',
   /** WebP image format. */
-  Webp = 'WEBP'
-}
+  Webp: 'WEBP'
+} as const;
 
-export enum ImageResizeFocus {
+export type ImageFormat = typeof ImageFormat[keyof typeof ImageFormat];
+export const ImageResizeFocus = {
   /** Focus the resizing on the bottom. */
-  Bottom = 'BOTTOM',
+  Bottom: 'BOTTOM',
   /** Focus the resizing on the bottom left. */
-  BottomLeft = 'BOTTOM_LEFT',
+  BottomLeft: 'BOTTOM_LEFT',
   /** Focus the resizing on the bottom right. */
-  BottomRight = 'BOTTOM_RIGHT',
+  BottomRight: 'BOTTOM_RIGHT',
   /** Focus the resizing on the center. */
-  Center = 'CENTER',
+  Center: 'CENTER',
   /** Focus the resizing on the largest face. */
-  Face = 'FACE',
+  Face: 'FACE',
   /** Focus the resizing on the area containing all the faces. */
-  Faces = 'FACES',
+  Faces: 'FACES',
   /** Focus the resizing on the left. */
-  Left = 'LEFT',
+  Left: 'LEFT',
   /** Focus the resizing on the right. */
-  Right = 'RIGHT',
+  Right: 'RIGHT',
   /** Focus the resizing on the top. */
-  Top = 'TOP',
+  Top: 'TOP',
   /** Focus the resizing on the top left. */
-  TopLeft = 'TOP_LEFT',
+  TopLeft: 'TOP_LEFT',
   /** Focus the resizing on the top right. */
-  TopRight = 'TOP_RIGHT'
-}
+  TopRight: 'TOP_RIGHT'
+} as const;
 
-export enum ImageResizeStrategy {
+export type ImageResizeFocus = typeof ImageResizeFocus[keyof typeof ImageResizeFocus];
+export const ImageResizeStrategy = {
   /** Crops a part of the original image to fit into the specified dimensions. */
-  Crop = 'CROP',
+  Crop: 'CROP',
   /** Resizes the image to the specified dimensions, cropping the image if needed. */
-  Fill = 'FILL',
+  Fill: 'FILL',
   /** Resizes the image to fit into the specified dimensions. */
-  Fit = 'FIT',
+  Fit: 'FIT',
   /**
    * Resizes the image to the specified dimensions, padding the image if needed.
    *         Uses desired background color as padding color.
    */
-  Pad = 'PAD',
+  Pad: 'PAD',
   /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
-  Scale = 'SCALE',
+  Scale: 'SCALE',
   /** Creates a thumbnail from the image. */
-  Thumb = 'THUMB'
-}
+  Thumb: 'THUMB'
+} as const;
 
+export type ImageResizeStrategy = typeof ImageResizeStrategy[keyof typeof ImageResizeStrategy];
 export type ImageTransformOptions = {
   /**
    * Desired background color, used with corner radius or `PAD` resize strategy.
@@ -590,21 +596,22 @@ export type PageLinkingCollectionsEntryCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-export enum PageOrder {
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
+export const PageOrder = {
+  SlugAsc: 'slug_ASC',
+  SlugDesc: 'slug_DESC',
+  SysFirstPublishedAtAsc: 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc: 'sys_firstPublishedAt_DESC',
+  SysIdAsc: 'sys_id_ASC',
+  SysIdDesc: 'sys_id_DESC',
+  SysPublishedAtAsc: 'sys_publishedAt_ASC',
+  SysPublishedAtDesc: 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc: 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc: 'sys_publishedVersion_DESC',
+  TitleAsc: 'title_ASC',
+  TitleDesc: 'title_DESC'
+} as const;
 
+export type PageOrder = typeof PageOrder[keyof typeof PageOrder];
 export type Query = {
   __typename?: 'Query';
   article?: Maybe<Article>;
