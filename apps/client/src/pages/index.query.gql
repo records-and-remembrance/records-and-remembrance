@@ -1,5 +1,5 @@
 query ArticleList {
-  articleCollection(limit: 10) {
+  articleCollection(limit: 10, order: date_DESC) {
     total
     skip
     limit
