@@ -74,7 +74,10 @@ export const getStaticProps: GetStaticProps<Props, Query> = async ({
 }
 
 export const getStaticPaths: GetStaticPaths<Query> = async () => {
-  const slugsData = await client.query(ArticleSlugsDocument).toPromise()
+  // TODO: Paginate
+  const slugsData = await client
+    .query(ArticleSlugsDocument, { limit: 1000 })
+    .toPromise()
   const items = slugsData.data?.articleCollection?.items ?? []
   const paths = items
     .filter((i) => !!i?.slug)

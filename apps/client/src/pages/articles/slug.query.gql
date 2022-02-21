@@ -11,8 +11,15 @@ query ArticlesBySlug($slug: String!) {
   }
 }
 
-query ArticleSlugs {
-  articleCollection {
+query ArticleSlugs($limit: Int, $skip: Int) {
+  articleCollection(
+    # The default is 100 and the maximum is 1000
+    limit: $limit,
+    skip: $skip
+  ) {
+    total
+    skip
+    limit
     items {
       slug
     }
